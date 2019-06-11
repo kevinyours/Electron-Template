@@ -4,6 +4,7 @@ const spawn = require('child_process').spawn;
 const baseConfig = require('./webpack.renderer.config');
 
 module.exports = merge.smart(baseConfig, {
+    target: 'web',
     resolve: {
         alias: {
             'react-dom': '@hot-loader/react-dom',
