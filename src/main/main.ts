@@ -10,13 +10,18 @@ function createWindow() {
         width: 800,
     });
 
-    mainWindow.loadURL(
-        url.format({
-            pathname: path.join(__dirname, './index.html'),
-            protocol: 'file:',
-            slashes: true,
-        })
-    );
+    if (process.env.NODE_ENV !== 'production') {
+        process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = '1';
+        mainWindow.loadURL(`http://localhost:2003`);
+    } else {
+        mainWindow.loadURL(
+            url.format({
+                pathname: path.join(__dirname, './index.html'),
+                protocol: 'file:',
+                slashes: true,
+            })
+        );
+    }
 
     mainWindow.webContents.openDevTools();
 
@@ -38,4 +43,3 @@ app.on('activate', () => {
         createWindow();
     }
 });
-
