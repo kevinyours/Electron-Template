@@ -1,1 +1,1 @@
-# Electron & React & Typescript & Storybook Tempalte
+# Electron & React & Typescript & Storybook Boilerplate
